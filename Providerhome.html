@@ -1,0 +1,50 @@
+{% extends "providerhead.html" %}
+{% load static %}
+{% block content %}
+<h2>
+Welcome To  NMS</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <table class="table table-responsive">
+        <tr>
+            <th>Type</th><td><select id="t1" name="t1" class="form-control" required>
+                <option value="">-select-</option>
+                <option value="3">Sharpen Image</option>
+                <option value="2">Remove Noise</option>
+                <option value="1">Blur Image</option>
+                
+                
+              <!--  <option value="3">Remove Blur</option>-->
+            </select></td>
+        </tr>
+        <tr>
+            <th>File</th> 
+            <td><input type="file" name="t2" class="form-control" required=""/></td>
+
+        </tr>
+        <tr><td colspan="2"><input type="submit"  class="btn btn-success" name="b1"/></td></tr>
+    </table>
+</form>
+{% if files != "" %}
+<table class="table table-responsive" >
+    <tr>
+        <td>
+            <img src="{{fnm}}" height="350" width="350" /> 
+        </td>
+        <td>
+            <img src="{{files}}" height="350" width="350" />
+        </td>
+    </tr>
+<tr>
+    <td ></td>
+    <td >
+        <a download="" class="btn btn-success" href="{{files}}">Download</a>
+    </td>
+</tr>
+
+
+
+</table>
+
+{% endif %}
+{% endblock %}
